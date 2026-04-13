@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <title>تواصل معنا | أطباء 5 عين</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="main-nav">
+        <h3 style="margin:0; color:var(--primary-blue);">أطباء 5 عين</h3>
+        <ul class="nav-links">
+            <li><a href="index.html">الرئيسية</a></li>
+            <li><a href="about.html">من نحن</a></li>
+            <li><a href="services.html">الخدمات</a></li>
+            <li><a href="contact.html">تواصل معنا</a></li>
+        </ul>
+    </header>
+
+    <div class="contact-box">
+        <h2 style="text-align: center; color: var(--primary-blue); margin-bottom: 20px;">طلب انضمام</h2>
+        <form class="contact-form">
+            <label>الاسم الكامل</label>
+            <input type="text" id="name" placeholder="د. الاسم هنا" required>
+
+            <label>التخصص</label>
+            <input type="text" id="job" placeholder="مثال: جراحة" required>
+
+            <label>المحافظة</label>
+            <input type="text" id="address" placeholder="مكان السكن" required>
+
+            <label>مستوى الحفظ</label>
+            <select id="parts">
+                <option>مبتدئ</option>
+                <option>5 أجزاء</option>
+                <option>15 جزء</option>
+                <option>خاتم</option>
+            </select>
+
+            <button type="button" onclick="sendWA()" class="cta-btn" style="width:100%; border:none; cursor:pointer; background:#25d366; color:white;">إرسال للواتساب</button>
+        </form>
+    </div>
+
+    <script>
+    function sendWA() {
+        let n = document.getElementById('name').value;
+        let j = document.getElementById('job').value;
+        let a = document.getElementById('address').value;
+        let p = document.getElementById('parts').value;
+        let msg = `طلب انضمام:%0Aالاسم: ${n}%0Aالتخصص: ${j}%0Aالسكن: ${a}%0Aالحفظ: ${p}`;
+        window.open(`https://api.whatsapp.com/send?phone=201004444266&text=${msg}`);
+    }
+    </script>
+</body>
+</html>
